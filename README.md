@@ -1,61 +1,94 @@
 # Quotes Scraper using Python
 
-A Python web scraping project that extracts quotes, authors, and tags from [Quotes to Scrape](https://quotes.toscrape.com/) and saves the data into a CSV file.
+A Python web scraping and data analysis project that extracts quotes, authors, and tags from [Quotes to Scrape](https://quotes.toscrape.com/), stores the data in a CSV file, and performs data cleaning and analysis using Pandas.
 
 ## Features
 
 - Extracts quotes, author names, and tags.
 - Scrapes multiple pages using pagination.
-- Saves data into a CSV file.
+- Saves scraped data into a CSV file.
 - Handles request timeouts and connection errors.
 - Handles HTTP errors.
+- Identifies and cleans missing values.
+- Filters quotes based on tags.
+- Groups quotes by author and calculates quote counts.
+- Checks for duplicate rows and quotes.
+- Exports cleaned data and author-wise quote counts to Excel files.
 
 ## Technologies Used
 
 - Python
 - Requests
 - BeautifulSoup
+- Pandas
 - CSV
+- Excel (openpyxl)
 
 ## Requirements
 
 Install the required libraries:
 
 ```bash
-pip install requests beautifulsoup4
+pip install requests beautifulsoup4 pandas openpyxl
 ```
 
 ## How to Run
 
-1. Open the project folder.
-2. Run the Python script:
+1. Clone or download this repository.
+2. Open the project folder in VS Code.
+3. Install the required libraries:
 
-   ```bash
-   python main.py
-   ```
+```bash
+pip install requests beautifulsoup4 pandas openpyxl
+```
 
-3. The extracted data will be saved in `Quotes.csv`.
+4. Run the web scraping script:
 
-## Output
+```bash
+python main.py
+```
 
-The CSV file contains three columns:
+5. Run the data analysis and Excel export script:
 
-- Quote
-- Author
-- Tags
+```bash
+python Quote_Scraper_Excel.py
+```
 
-The script is configured to scrape up to 10 pages and save all collected data in a single CSV file.
+The first script scrapes quotes and saves them to `Quotes.csv`. The second script cleans and analyzes the data, then exports the results to Excel files.
+
+
+## Output Files
+
+| File | Description |
+|---|---|
+| `Quotes.csv` | Scraped quotes, authors, and tags |
+| `Quotes.xlsx` | Cleaned dataset exported to Excel |
+| `Quote.xlsx` | Author-wise quote counts |
+
+## Data Analysis with Pandas
+
+The project uses Pandas to:
+
+- Read and analyze CSV data.
+- Check missing values.
+- Replace missing tags with `"No Tags"`.
+- Filter quotes using tag-based conditions.
+- Count quotes for each author.
+- Check duplicate rows and duplicate quotes.
+- Export processed data to Excel.
 
 ## Learning Outcomes
 
-- HTML parsing with BeautifulSoup
-- Using `find()` and `find_all()`
-- Extracting nested HTML elements
-- Web scraping with Requests
-- Pagination
-- CSV file handling
-- HTTP request error handling
+- Web scraping with Requests and BeautifulSoup.
+- HTML parsing using `find()` and `find_all()`.
+- Extracting nested HTML elements.
+- Handling pagination and HTTP errors.
+- Reading and writing CSV files.
+- Data cleaning and filtering with Pandas.
+- Grouping and counting data.
+- Detecting duplicate records.
+- Generating Excel reports.
 
 ## Disclaimer
 
-This project was created for educational purposes using Quotes to Scrape, a website designed for practicing web scraping.
+This project was created for educational purposes using [Quotes to Scrape](https://quotes.toscrape.com/), a website designed for practicing web scraping.
