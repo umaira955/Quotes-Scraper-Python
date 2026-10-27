@@ -16,8 +16,10 @@ Quot = df[
 ]
 print(Quot)
 print(len(Quot))
+Quot.to_excel("Filtered_Quotes.xlsx", index=False)
 Author = df.groupby("Author")["Quote"].count()
 print(Author)
+Author = Author.sort_values(ascending=False)
 Authors = Author.reset_index()
 Authors.to_excel("Quote.xlsx" , index= False)
 print(df.duplicated())
